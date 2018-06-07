@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+                <style>
+                    body {
+                        margin:0;
+                        padding:0;
+                        background-color: rgba(0,0,0,0.5)
+                    }
+                .dialog-alert {
+                    display: inline-block;
+                    height: 100px;
+                    width: 200px;
+                    background-color: rgba(0,0,0,0.6);
+                    border-radius: 10px;
+                    margin-top: 200px;
+                    color: white;
+                    margin-left: 100px;
+                    text-align: center;
+                    vertical-align: middle;
+                    line-height: 100px;
+                }
+                </style>
+                
+    </head>
+    <body>
+        
+        <div class="dialog-alert" onclick="popAlertClose()">【弹框】知道了，关闭</div>
+        
+        <script>
+            // 弹提示框
+            function popAlertClose() {
+                
+                const messagingIframe = document.createElement('iframe');
+                messagingIframe.style.display = 'none';
+                messagingIframe.src = "DYAlert://close?a=1?b=2";
+                
+                document.documentElement.appendChild(messagingIframe);
+                setTimeout(function () {
+                           document.documentElement.removeChild(messagingIframe);
+                           }, 0);
+            }
+        
+        
+            </script>
+    </body>
+</html>
